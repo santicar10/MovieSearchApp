@@ -1,0 +1,58 @@
+﻿@page
+@model MovieSearchApp.Pages.SearchModel
+@{
+    ViewData["Title"] = "Buscar Películas";
+}
+
+<div class="container" style="margin-bottom:20px">
+    <h1>Buscar Películas</h1>
+
+    <form method="get" class="mb-3">
+        <div class="container" style="margin-bottom:20px">
+            <div class="row">
+                <div style="margin-bottom:10px">
+                    <input class="form-control" type="text" name="query" value="@Model.Query" placeholder="Ingrese el título de una película" />
+                </div>
+                <div>
+                   <button class="btn btn-primary" type="submit">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    @if (Model.Movies != null && Model.Movies.Any())
+    {
+        <div class="row">
+            @foreach (var movie in Model.Movies)
+            {
+                <div class="col-md-3 mb-4" onclick="redirectToMovieDetails('@movie.Title')">
+                    <!-- Cambia el valor a 3 para hacer las tarjetas más pequeñas -->
+                    <div class="card">
+                        <img src="@movie.PosterPath" alt="Poster de @movie.Title" class="card-img-top" />
+                        <div class="card-body">
+                            <h5 class="card-title">@movie.Title</h5>
+                            <p class="card-text"><strong>Fecha de lanzamiento:</strong> @movie.ReleaseDate</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else if (!string.IsNullOrEmpty(Model.Query))
+    {
+        <div class="alert alert-warning" role="alert">
+            No se encontraron resultados para "@Model.Query".
+        </div>
+    }
+</div>
+
+<style>
+    .card {
+        border: none;
+    }
+</style>
+<script>
+    function redirectToMovieDetails(movieTitle) {
+        window.location.href = `/movie-details?title=${encodeURIComponent(movieTitle)}`;
+    }
+</script>

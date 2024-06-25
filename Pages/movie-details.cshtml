@@ -1,0 +1,26 @@
+﻿@page
+@model MovieSearchApp.Pages.MovieDetailsModel
+@{
+    ViewData["Title"] = "Detalles de la Película";
+}
+
+<div class="container">
+    <h1>Detalles de la Película</h1>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <img src="@Model.Movie.PosterPath" alt="Poster de @Model.Movie.Title" class="img-fluid rounded" />
+        </div>
+
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Movie.Title</h5>
+                    <p class="card-text"><strong>Fecha de lanzamiento:</strong> @Model.Movie.ReleaseDate</p>
+                    <p class="card-text"><strong>Calificación:</strong> @Model.Movie.VoteAverage</p>
+                    <p class="card-text"><strong>Descripción:</strong> @Model.Movie.Overview</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

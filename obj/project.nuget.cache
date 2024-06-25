@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Oj4yjKgQ5KM=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sn09p\\source\\repos\\MovieSearchApp\\MovieSearchApp\\MovieSearchApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sn09p\\.nuget\\packages\\bootstrap\\5.3.3\\bootstrap.5.3.3.nupkg.sha512"
+  ],
+  "logs": []
+}
